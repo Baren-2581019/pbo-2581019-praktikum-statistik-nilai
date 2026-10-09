@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class StatistikNilai {
@@ -27,6 +28,11 @@ public class StatistikNilai {
 
             daftar.add(input);
         } while (input != SELESAI);
+
+        if (daftar.isEmpty()) {
+            System.out.println("Tidak ada nilai sah yang dimasukkan.");
+            return;
+        }
 
         System.out.println();
         System.out.println("Nilai tersimpan : " + daftar);
@@ -81,5 +87,10 @@ public class StatistikNilai {
             if (i < jumlahGrade.length - 1) System.out.print(" ");
         }
         System.out.println();
+
+        ArrayList<Integer> terurut = new ArrayList<>(daftar);
+        Collections.sort(terurut);
+        System.out.println("Terurut         : " + terurut);
+        System.out.println("Urutan asli     : " + daftar);
     }
 }
